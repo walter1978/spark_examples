@@ -1,4 +1,4 @@
-# spark_examples
+# Apache Spark examples
 
 **Example01BasicOperations.scala**
   * Basic transformations (filter, map)
