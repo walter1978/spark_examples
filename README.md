@@ -1,5 +1,4 @@
 # spark_examples
-**Spark examples**
 
 **Example01BasicOperations.scala**
   * Basic transformations (filter, map)
