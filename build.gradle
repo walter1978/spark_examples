@@ -1,0 +1,24 @@
+apply plugin: 'scala'
+
+group 'course'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.spark', name: 'spark-core_2.12', version: '2.4.3'
+    compile group: 'org.apache.spark', name: 'spark-sql_2.12', version: '2.4.3'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'spark.course.MainApp'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
